@@ -34,11 +34,15 @@ Functions
 ---------
 '''
 
+import sys
 from django.utils import timezone
 from django.db import models
 from django.utils.translation import ugettext_lazy as _
 from django.core.exceptions import ValidationError
 
+if sys.version_info.major == 3:
+    class unicode:
+        pass
 
 def validate_text(value):
     '''
